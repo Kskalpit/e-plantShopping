@@ -19,10 +19,10 @@ export const CartSlice = createSlice({
         }
         },
     
-    removeItem: (state, action) => {
-        const {itemToRemove, } = action.payload;
-
-    }, // CHeck the code here #################
+        removeItem: (state, action) => {
+            const { name } = action.payload; // Destructure the name of the item to remove
+            state.items = state.items.filter(item => item.name !== name);
+          }, // CHeck the code here #################
     updateQuantity: (state, action) => {
         const { name, quantity } = action.payload; // Destructure the product name and new quantity from the action payload
         // Find the item in the cart that matches the given name
